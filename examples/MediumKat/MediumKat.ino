@@ -22,11 +22,11 @@ GetIMU * sensor;
 void setup() {
 	coms.attach(new SetServos());
 	sensor=new GetIMU();
-	sensor->startSensor();
+	//sensor->startSensor();
 	coms.attach(sensor);
 }
 
 void loop() {
 	coms.server();
-	sensor->loop();
+	//sensor->loop();
 }
