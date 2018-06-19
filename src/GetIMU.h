@@ -33,6 +33,7 @@ public:
 	void event(float * buffer);
 	void loop();
 	void startSensor();
+	void print();
 };
 
 

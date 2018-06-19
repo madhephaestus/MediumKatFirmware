@@ -29,4 +29,5 @@ void loop() {
 #endif
 	coms.server();
 	sensor->loop();
+	sensor->print();
 }

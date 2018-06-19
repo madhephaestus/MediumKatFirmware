@@ -6,6 +6,7 @@
  */
 
 #include "GetIMU.h"
+float printData[6];
 
 //User function to be called when a packet comes in
 // Buffer contains data from the packet cming in at the start of the function
@@ -32,4 +33,13 @@ void GetIMU::startSensor(){
 	started=bno->begin();
 	if(started)
 		bno->setExtCrystalUse(true);
+}
+void GetIMU::print(){
+	event(printData);
+	Serial.print("\r\n Data "+String(printData[0])+" , "
+			+String(printData[1])+" , "
+			+String(printData[2])+" , "
+			+String(printData[3])+" , "
+			+String(printData[4])+" , "
+			+String(printData[5])+" , ");
 }
