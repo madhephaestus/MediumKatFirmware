@@ -19,6 +19,8 @@ private:
 	Adafruit_BNO055 * bno;
 	imu::Vector<3> v;
 	imu::Vector<3> a;
+	imu::Vector<3> g;
+	imu::Vector<3> e;
 	bool started;
 public:
 	// Packet ID needs to be set
@@ -26,6 +28,7 @@ public:
 		PacketEventAbstract(1804)	// Address of this event
 {
 		started=false;
+		bno=NULL;
 }
 	//User function to be called when a packet comes in
 	// Buffer contains data from the packet cming in at the start of the function

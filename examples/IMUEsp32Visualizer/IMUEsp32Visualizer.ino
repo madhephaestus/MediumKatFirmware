@@ -13,6 +13,7 @@ HIDSimplePacket coms;
 #endif
 
 GetIMU * sensor;
+long lastPrint = 0;
 void setup() {
 #if defined(ARDUINO_ARCH_ESP32)
 	manager.setup();
@@ -29,5 +30,8 @@ void loop() {
 #endif
 	coms.server();
 	sensor->loop();
-	sensor->print();
+	if(millis()-lastPrint>50){
+		lastPrint=millis();
+		sensor->print();
+	}
 }
